@@ -35,3 +35,14 @@ Based on talk **GOTO 2012 Introduction to NoSQL - Martin Fowler**
   - database is optimized for columnar storage.
   - select fewer columns to get user information. records might look like <user_id (col1), phonenumber(col2)>, <user_id(col1), email(col2)> 
   
+The ACID debate 
+
+- Since schema dbs need to create records in multiple tables spread across they need the concept of transactions to wrap around queries
+- So if you have a distributed data model (data is distributed among tables) the updates will need ACID properties 
+- Schemaless DBs (KV, Document, Columnar) most of them don't have this distributed data foreign key relationships etc. so there is lesser need for them to be ACID
+- Most of the data is at single place. 
+  - KV : values are just a row 
+  - document : entire document is decomposed as embedded/sub documents
+- Graph dbs are exception, since the nodes are connected via relationships (data is decomposed in form of nodes) it does have ACID properties (transactions are possible) 
+- so argument that NoSQL don't have ACID properties, is somewhat wrong. they have lesser need to support it. Graph definitely needs it so supports ACID 
+

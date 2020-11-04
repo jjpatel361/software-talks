@@ -35,7 +35,7 @@ Based on talk **GOTO 2012 Introduction to NoSQL - Martin Fowler**
   - database is optimized for columnar storage.
   - select fewer columns to get user information. records might look like <user_id (col1), phonenumber(col2)>, <user_id(col1), email(col2)> 
   
-The ACID debate 
+## The ACID debate 
 
 - Since schema dbs need to create records in multiple tables spread across they need the concept of transactions to wrap around queries
 - So if you have a distributed data model (data is distributed among tables) the updates will need ACID properties 
@@ -46,3 +46,26 @@ The ACID debate
 - Graph dbs are exception, since the nodes are connected via relationships (data is decomposed in form of nodes) it does have ACID properties (transactions are possible) 
 - so argument that NoSQL don't have ACID properties, is somewhat wrong. they have lesser need to support it. Graph definitely needs it so supports ACID 
 
+
+## CAP theorem
+
+**C** - **C**onsistency 
+**A** - **A**vailability 
+**P** - **P**artition Tolerance 
+
+- General knowledge is, you can only get 2 items from the above three things right. You can either design for CA, AP etc
+- Compared to general wisdom, real differentiator is P 
+- You can then fine tune how much of system is towards C or A. This design decision is based on the business, if you are ok to be less consistent and more available e.g Amazon Shopping cart, it is ok if you have less consistent data but availablity drives the business. 
+e.g (Personal one) Stock exchanges : it is ok to not available then to be in consistent. In consistentcy might lead to a wrong trade executed or decisions made 
+- Consistency in NoSQL is different then consistency of SQL DB's
+
+## When and Why to use NoSQL DB 
+
+- easier development 
+- large scale data - else you end up with large SQL tables 
+- data analytics / data warehousing etc
+ 
+ 
+ ## Takeway 
+ 
+ NoSQL is still maturing and looks maturing
